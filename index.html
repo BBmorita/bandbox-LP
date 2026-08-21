@@ -6,7 +6,7 @@
 <title>BandBox | アーティストのためのグッズ販売サービス</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
 <style>
   :root{
     --paper:#F7F6F2;
@@ -27,7 +27,7 @@
     line-height:1.9;
     -webkit-font-smoothing:antialiased;
   }
-  .en{font-family:'Anton',sans-serif;font-weight:400;letter-spacing:.02em;}
+  .en{font-family:'Archivo Black',sans-serif;font-weight:400;letter-spacing:.02em;}
   a{color:inherit;}
   img{max-width:100%;display:block;}
   .wrap{max-width:1040px;margin:0 auto;padding:0 24px;}
@@ -47,7 +47,7 @@
     content:"";width:7px;height:7px;border-radius:50%;
     border:1.5px solid var(--ink);background:var(--paper);
   }
-  .tag .en{letter-spacing:.14em;color:var(--blue);}
+  .tag .en{display:inline-block;transform:translateY(2px);letter-spacing:.14em;color:var(--blue);}
 
   /* ===== header ===== */
   header{
@@ -57,10 +57,10 @@
   }
   .header-in{
     display:flex;justify-content:space-between;align-items:center;
-    padding:14px 24px;max-width:1200px;margin:0 auto;
+    padding:8px 24px;max-width:1200px;margin:0 auto;
   }
-  .logo{font-size:26px;line-height:1;}
-  .logo span{color:var(--blue);}
+  .logo{display:block;line-height:0;}
+  .logo img{width:88px;height:88px;object-fit:contain;}
   .head-cta{
     font-size:13px;font-weight:700;letter-spacing:.1em;
     background:var(--ink);color:var(--paper);
@@ -75,19 +75,26 @@
     border-bottom:2px solid var(--ink);
     position:relative;overflow:hidden;
   }
+  .brand-intro{
+    padding:42px 24px 36px;text-align:center;
+    background:var(--paper);color:var(--ink);
+    border-bottom:1px solid var(--line);
+  }
+  .brand-intro img{
+    width:min(300px,70vw);height:auto;aspect-ratio:1;object-fit:contain;margin:0 auto;
+  }
+  .brand-intro p{margin-top:10px;font-size:clamp(15px,2vw,18px);font-weight:900;letter-spacing:.08em;}
   .hero-grid{
     display:grid;grid-template-columns:1.15fr .85fr;gap:48px;
     align-items:center;padding:72px 0 64px;
   }
   .hero h1{
-    font-size:clamp(34px,4.6vw,54px);
-    font-weight:900;line-height:1.45;letter-spacing:.04em;
-    margin:26px 0 18px;
+    font-size:clamp(24px,3.8vw,46px);
+    font-weight:900;line-height:1.45;letter-spacing:.02em;
+    margin:0 0 18px;
   }
-  .hero h1 .ph{
-    background:var(--blue-soft);outline:2px dashed var(--blue);
-    color:var(--blue);padding:0 10px;
-  }
+  .hero h1 .copy-line{white-space:nowrap;}
+  .hero h1 .copy-marker{background:linear-gradient(transparent 62%,var(--blue-soft) 62%);}
   .hero .sub{
     font-size:16px;font-weight:500;color:var(--ink);
     max-width:34em;
@@ -115,25 +122,10 @@
     border:2px solid var(--ink);
     background:repeating-linear-gradient(-45deg,#EDEBE4 0 12px,#F3F1EA 12px 24px);
     aspect-ratio:4/5;
-    display:flex;flex-direction:column;align-items:center;justify-content:center;
-    gap:12px;color:var(--gray);
+    overflow:hidden;
     box-shadow:6px 6px 0 var(--ink);
   }
-  .hero-visual .en{font-size:20px;color:var(--ink);}
-  .hero-visual svg{width:44%;height:auto;}
-  .ticker{
-    border-top:2px solid var(--ink);
-    background:var(--ink);color:var(--paper);
-    overflow:hidden;white-space:nowrap;
-  }
-  .ticker-in{
-    display:inline-block;padding:8px 0;
-    font-size:13px;letter-spacing:.3em;
-    animation:tick 28s linear infinite;
-  }
-  @keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-  @media (prefers-reduced-motion:reduce){.ticker-in{animation:none;}}
-
+  .hero-visual img{width:100%;height:100%;object-fit:cover;}
   /* ===== sections ===== */
   section{padding:88px 0;}
   section + section{border-top:1px solid var(--line);}
@@ -145,75 +137,90 @@
   .sec-head p.lead{margin-top:10px;color:var(--gray);font-size:15px;}
 
   /* 課題 */
-  .problems{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:2px solid var(--ink);background:#fff;}
-  .problem{padding:28px 22px;border-right:1px solid var(--line);}
-  .problem:last-child{border-right:none;}
-  .problem .en{font-size:13px;color:var(--blue);letter-spacing:.1em;}
-  .problem h3{font-size:16px;font-weight:900;margin:8px 0 8px;line-height:1.6;}
-  .problem p{font-size:13.5px;color:var(--gray);line-height:1.8;}
+  .problems{border:2px solid var(--ink);background:#fff;box-shadow:5px 5px 0 var(--ink);}
+  .problem{
+    display:grid;grid-template-columns:minmax(180px,.8fr) 1.2fr;gap:32px;align-items:baseline;
+    margin:0 26px;padding:24px 0;
+  }
+  .problem + .problem{border-top:1px dashed var(--line);}
+  .problem h3{
+    font-size:clamp(22px,2.6vw,30px);font-weight:900;line-height:1.35;
+  }
+  .problem h3 span{background:linear-gradient(transparent 62%,var(--blue-soft) 62%);}
+  .problem p{font-size:18px;color:var(--gray);line-height:1.8;}
 
   /* サービス概要 */
-  .about-copy{max-width:40em;font-size:16.5px;}
+  .about-copy{max-width:40em;font-size:16px;}
+  .about-section .sec-head{margin-bottom:18px;}
   .about-copy b{background:linear-gradient(transparent 62%,var(--blue-soft) 62%);font-weight:900;}
+  @media(min-width:861px){.about-copy .about-line{white-space:nowrap;}}
   .flow{
-    margin-top:44px;border:2px solid var(--ink);background:#fff;
-    display:grid;grid-template-columns:1fr 30px 2.3fr 30px 1fr;align-items:stretch;
+    margin-top:44px;display:grid;grid-template-columns:1fr 1fr;gap:76px;position:relative;
   }
-  .flow-col{padding:26px 20px;}
-  .flow-col h4{font-size:13px;letter-spacing:.18em;font-weight:900;color:var(--blue);margin-bottom:12px;}
-  .flow-col ul{list-style:none;}
-  .flow-col li{
-    font-size:13.5px;font-weight:500;padding:7px 0;border-bottom:1px dashed var(--line);
+  .flow::after{
+    content:"→";position:absolute;left:50%;top:50%;z-index:1;
+    transform:translate(-50%,-50%);padding:4px 8px;
+    background:var(--paper);font-size:36px;line-height:1;color:var(--blue);
   }
-  .flow-col li:last-child{border-bottom:none;}
-  .flow-mid{background:var(--tag-bg);border-left:1px solid var(--line);border-right:1px solid var(--line);}
-  .flow-arrow{
-    display:flex;align-items:center;justify-content:center;
-    font-size:18px;color:var(--ink);background:var(--paper);
+  .flow-panel{border:2px solid var(--ink);background:#fff;box-shadow:5px 5px 0 var(--ink);}
+  .flow-panel-head{
+    display:flex;height:84px;align-items:center;gap:12px;padding:18px 26px;border-bottom:2px solid var(--ink);
   }
-  .flow-note{margin-top:14px;font-size:12.5px;color:var(--gray);}
+  .flow-panel-head .en{display:inline-block;transform:translateY(4px);font-size:24px;color:var(--blue);letter-spacing:.08em;}
+  .flow-panel-head h3{font-size:22px;font-weight:900;line-height:1;}
+  .flow-panel-body{padding:20px 26px 24px;}
+  .flow-panel-body ul{list-style:none;}
+  .flow-panel-body li{padding:10px 0;border-bottom:1px dashed var(--line);}
+  .flow-panel-body li:last-child{border-bottom:none;}
+  .flow-before .flow-panel-body li{font-size:16px;font-weight:700;color:var(--gray);}
+  .flow-after .flow-panel-body b{display:block;font-size:18px;line-height:1.4;}
+  .flow-after .flow-panel-body span{display:block;margin-top:2px;font-size:16px;font-weight:500;color:var(--gray);}
+  .flow-note{margin-top:14px;font-size:13px;color:var(--gray);}
 
   /* 販売方式 */
-  .methods{display:grid;grid-template-columns:1fr 1fr;gap:28px;}
+  .methods{display:grid;grid-template-columns:1fr 1fr;column-gap:76px;row-gap:24px;}
   .method{border:2px solid var(--ink);background:#fff;box-shadow:5px 5px 0 var(--ink);}
   .method-head{
     border-bottom:2px solid var(--ink);padding:18px 26px;
-    display:flex;align-items:baseline;gap:12px;
+    display:flex;height:84px;align-items:center;gap:12px;
   }
-  .method-head .en{font-size:15px;color:var(--blue);}
-  .method-head h3{font-size:21px;font-weight:900;}
+  .method-head h3{font-size:22px;font-weight:900;line-height:1;}
   .method-body{padding:24px 26px 28px;}
-  .method-body p{font-size:14.5px;}
+  .method-body p{font-size:16px;}
   .method-body ul{list-style:none;margin-top:14px;}
   .method-body li{
-    font-size:13.5px;font-weight:700;padding-left:22px;position:relative;margin-top:8px;
+    font-size:18px;font-weight:700;padding-left:24px;position:relative;margin-top:10px;line-height:1.4;
   }
   .method-body li::before{
     content:"◉";position:absolute;left:0;color:var(--blue);font-size:12px;
   }
   .method-step{
-    margin-top:34px;grid-column:1/-1;
+    margin-top:0;grid-column:1/-1;
     border:1.5px dashed var(--blue);background:var(--blue-soft);
-    padding:18px 26px;font-size:14px;font-weight:700;
+    padding:18px 26px;font-size:16px;font-weight:700;
   }
 
   /* 特徴 */
-  .features{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;}
-  .feature{border-top:3px solid var(--ink);padding-top:20px;}
+  .features{border:2px solid var(--ink);background:#fff;box-shadow:5px 5px 0 var(--ink);}
+  .feature{display:grid;grid-template-columns:.9fr 1.4fr;gap:48px;margin:0 26px;padding:26px 0;}
+  .feature + .feature{border-top:1px dashed var(--line);}
+  .feature-head{padding:0;}
   .feature .en{color:var(--blue);font-size:14px;letter-spacing:.1em;}
-  .feature h3{font-size:18px;font-weight:900;margin:6px 0 10px;line-height:1.6;}
-  .feature p{font-size:14px;color:var(--gray);}
+  .feature h3{font-size:18px;font-weight:900;margin:6px 0 0;line-height:1.5;}
+  .feature p{padding:0;font-size:16px;color:var(--gray);align-self:center;}
 
   /* 事例 */
   .case{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center;}
   .case-shot{
-    border:2px solid var(--ink);aspect-ratio:16/10;
+    border:2px solid var(--ink);
     background:repeating-linear-gradient(-45deg,#EDEBE4 0 12px,#F3F1EA 12px 24px);
     display:flex;align-items:center;justify-content:center;
     color:var(--gray);font-size:14px;box-shadow:6px 6px 0 var(--ink);
+    overflow:hidden;
   }
+  .case-shot img{width:100%;height:auto;}
   .case-copy h3{font-size:22px;font-weight:900;margin-bottom:14px;line-height:1.6;}
-  .case-copy p{font-size:15px;}
+  .case-copy p{font-size:16px;}
   .case-link{
     display:inline-block;margin-top:20px;font-weight:900;font-size:14px;letter-spacing:.08em;
     color:var(--blue);text-decoration:none;border-bottom:2px solid var(--blue);padding-bottom:2px;
@@ -225,51 +232,68 @@
     display:grid;grid-template-columns:1.1fr 1fr;
   }
   .price-main{padding:44px 40px;border-right:2px solid var(--ink);}
-  .price-main .rate{font-size:15px;font-weight:900;letter-spacing:.14em;}
+  .price-main .rate{font-size:18px;font-weight:900;}
   .price-main .num{
     font-size:clamp(64px,8vw,104px);line-height:1;color:var(--blue);
     margin:6px 0 4px;
   }
   .price-main .num small{font-size:.38em;color:var(--ink);font-family:'Noto Sans JP';font-weight:900;margin-left:6px;}
-  .price-main p{font-size:13.5px;color:var(--gray);}
+  .old-rate{
+    display:block;width:max-content;font-family:'Noto Sans JP',sans-serif;
+    font-size:.48em;font-weight:500;color:var(--gray);text-decoration:none;
+  }
+  .old-rate-number{display:inline-block;position:relative;text-decoration:none;}
+  .old-rate-number::after{
+    content:"";position:absolute;left:0;right:0;top:52%;height:2px;background:var(--ink);
+  }
+  .old-rate small{font-weight:500;color:var(--gray);text-decoration:none!important;}
+  .rate-new{display:block;}
+  .rate-arrow{font-size:.38em;color:var(--ink);vertical-align:middle;margin-right:10px;}
+  .price-main p{font-size:16px;color:var(--gray);}
   .price-side{padding:44px 40px;display:flex;flex-direction:column;justify-content:center;gap:16px;}
   .price-line{display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px dashed var(--line);padding-bottom:10px;}
-  .price-line span{font-size:14px;font-weight:700;}
+  .price-line span{font-size:18px;font-weight:900;}
   .price-line b{font-size:20px;font-weight:900;color:var(--blue);}
   .price-note{font-size:12px;color:var(--gray);margin-top:16px;}
 
   /* 商品 */
-  .items{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;}
-  .item{
-    border:1.5px solid var(--ink);background:#fff;padding:18px 16px 16px;
-    font-size:14px;font-weight:700;text-align:center;
+  .items{
+    display:grid;grid-template-columns:1fr 1fr;column-gap:48px;
+    border:2px solid var(--ink);background:#fff;box-shadow:5px 5px 0 var(--ink);
+    padding:0 26px;
   }
-  .item .lot{display:block;font-size:11.5px;font-weight:500;color:var(--gray);margin-top:4px;}
+  .item{
+    display:flex;align-items:baseline;justify-content:space-between;gap:16px;
+    border-bottom:1px dashed var(--line);padding:16px 0;
+    font-size:18px;font-weight:700;text-align:left;
+  }
+  .item .lot{font-size:13px;font-weight:500;color:var(--gray);white-space:nowrap;}
   .item.one .lot{color:var(--blue);font-weight:900;}
+  .item:nth-last-child(-n+2){border-bottom:none;}
   .items-note{margin-top:18px;font-size:13px;color:var(--gray);}
 
   /* 導入 */
-  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;counter-reset:step;}
-  .step{border:2px solid var(--ink);background:#fff;padding:26px 24px;position:relative;}
-  .step::before{
-    counter-increment:step;content:counter(step,decimal-leading-zero);
-    font-family:'Anton';font-size:34px;color:var(--blue);
-    position:absolute;top:-22px;left:18px;background:var(--paper);padding:0 8px;
+  .steps{border:2px solid var(--ink);background:#fff;box-shadow:5px 5px 0 var(--ink);}
+  .step{display:grid;grid-template-columns:140px 1fr;gap:22px;margin:0 26px;padding:24px 0;}
+  .step + .step{border-top:1px dashed var(--line);}
+  .step-num{
+    align-self:center;justify-self:center;
+    font-family:'Archivo Black',sans-serif;font-size:30px;line-height:1;color:var(--blue);letter-spacing:.06em;
   }
-  .step h3{font-size:17px;font-weight:900;margin:10px 0 8px;}
-  .step p{font-size:13.5px;color:var(--gray);}
-  .steps-note{
+  .step h3{font-size:18px;font-weight:900;line-height:1.5;}
+  .step p{margin-top:4px;font-size:16px;color:var(--gray);}
+  .items-delivery{
     margin-top:34px;border:1.5px dashed var(--blue);background:var(--blue-soft);
-    padding:18px 26px;font-size:14px;font-weight:700;
+    padding:18px 26px;font-size:16px;font-weight:700;
   }
-  .steps-note small{display:block;font-weight:500;font-size:12.5px;color:var(--gray);margin-top:4px;}
+  .items-delivery small{display:block;font-weight:500;font-size:12.5px;color:var(--gray);margin-top:4px;}
 
   /* FAQ */
-  .faq{max-width:820px;}
+  .faq{max-width:820px;margin:0 auto;}
   details{border-bottom:1px solid var(--line);}
   summary{
     cursor:pointer;list-style:none;
-    padding:22px 44px 22px 0;font-size:15.5px;font-weight:900;
+    padding:22px 44px 22px 0;font-size:18px;font-weight:900;
     position:relative;
   }
   summary::-webkit-details-marker{display:none;}
@@ -278,8 +302,8 @@
     color:var(--blue);font-weight:900;font-size:18px;
   }
   details[open] summary::after{content:"−";}
-  .answer{padding:0 0 24px;font-size:14.5px;color:#3d3b38;max-width:44em;}
-  .answer .q-note{font-size:12.5px;color:var(--gray);display:block;margin-top:6px;}
+  .answer{padding:0 0 24px;font-size:16px;color:#3d3b38;max-width:44em;}
+  .answer .q-note{font-size:13px;color:var(--gray);display:block;margin-top:6px;}
 
   /* closing */
   .closing{
@@ -287,12 +311,13 @@
     background:var(--ink);color:var(--paper);text-align:center;
     padding:96px 24px;
   }
-  .closing .en{font-size:clamp(40px,7vw,84px);line-height:1.05;color:var(--paper);}
-  .closing .en span{color:#8fa0ff;}
-  .closing p{margin-top:20px;font-size:15px;color:#C9C6BF;}
+  .closing > .en{font-size:clamp(40px,7vw,84px);line-height:1.05;color:var(--paper);}
+  .closing > .en span{color:#8fa0ff;}
+  .closing p{margin-top:20px;font-size:16px;color:#C9C6BF;}
   .closing .hero-cta{
     background:var(--paper);color:var(--ink);border-color:var(--paper);
-    box-shadow:4px 4px 0 #8fa0ff;margin-top:36px;
+    box-shadow:3px 3px 0 #8fa0ff;margin-top:24px;
+    padding:10px 22px;font-size:14px;
   }
   .closing .hero-cta:hover{box-shadow:2px 2px 0 #8fa0ff;}
 
@@ -309,14 +334,18 @@
   @media(max-width:860px){
     .hero-grid{grid-template-columns:1fr;padding:48px 0;}
     .hero-visual{max-width:420px;}
-    .problems{grid-template-columns:1fr 1fr;}
-    .problem{border-bottom:1px solid var(--line);}
-    .flow{grid-template-columns:1fr;}
-    .flow-arrow{padding:6px 0;transform:rotate(90deg);}
-    .methods,.features,.steps{grid-template-columns:1fr;}
+    .problem{grid-template-columns:1fr;gap:6px;margin:0 22px;padding:22px 0;}
+    .flow{grid-template-columns:1fr;gap:28px;}
+    .flow::after{display:none;}
+    .methods{grid-template-columns:1fr;gap:28px;}
+    .feature{grid-template-columns:1fr;gap:10px;margin:0 22px;padding:22px 0;}
+    .features{grid-template-columns:1fr;}
+    .step{grid-template-columns:1fr;gap:8px;margin:0 22px;padding:22px 0;}
     .case,.price-box{grid-template-columns:1fr;}
     .price-main{border-right:none;border-bottom:2px solid var(--ink);}
-    .items{grid-template-columns:1fr 1fr;}
+    .items{grid-template-columns:1fr;padding:0 22px;}
+    .item:nth-last-child(-n+2){border-bottom:1px dashed var(--line);}
+    .item:last-child{border-bottom:none;}
     section{padding:64px 0;}
   }
 </style>
@@ -325,37 +354,33 @@
 
 <header>
   <div class="header-in">
-    <div class="logo en">BAND<span>BOX</span></div>
+    <div class="logo">
+      <img src="./bandbox-logo-black.png" alt="BandBox">
+    </div>
     <a class="head-cta" href="#contact">まずは相談する</a>
   </div>
 </header>
 
 <!-- 1. HERO -->
 <div class="hero">
+  <div class="brand-intro">
+    <img src="./bandbox-logo-black.png" alt="BANDBOX">
+    <p>グッズの製造・販売・発送を、使った分だけまるごと代行</p>
+  </div>
   <div class="wrap hero-grid">
     <div>
-      <span class="tag"><span class="en">BANDBOX</span>アーティストのためのグッズ販売サービス</span>
-      <h1><span class="ph">【キャッチコピー】</span></h1>
-      <p class="sub">グッズの製造・販売ページ・発送・購入者対応・売上の精算まで、バンドボックスが引き受けます。アーティストが用意するのは、デザインデータだけ。</p>
+      <h1><span class="copy-line">アーティストの活動を、</span><br><span class="copy-line copy-marker">もっと自由に、</span><br><span class="copy-line copy-marker">もっと楽しく。</span></h1>
+      <p class="sub">グッズの製造・販売ページ・発送・購入者対応・売上の精算まで、<br>バンドボックスが引き受けます。<br>アーティストが用意するのは、デザインデータだけ。</p>
       <div class="zero">
         <div class="zero-item">初期費用 <b>0円</b></div>
         <div class="zero-item">月額費用 <b>0円</b></div>
         <div class="zero-item">在庫リスク <b>0</b></div>
       </div>
-      <a class="hero-cta" href="#contact">まずは相談する<small>CONSULT — 無料</small></a>
+      <a class="hero-cta" href="#contact">まずは相談する<small><span class="en">CONSULT</span> — 無料</small></a>
     </div>
     <div class="hero-visual">
-      <svg viewBox="0 0 120 110" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <path d="M38 12 L20 24 L10 46 L26 54 L26 100 L94 100 L94 54 L110 46 L100 24 L82 12 C82 12 74 22 60 22 C46 22 38 12 38 12 Z" stroke="#161514" stroke-width="4" fill="#fff"/>
-        <circle cx="60" cy="58" r="16" stroke="#2438C9" stroke-width="4"/>
-        <circle cx="60" cy="58" r="5" fill="#2438C9"/>
-      </svg>
-      <span class="en">VISUAL PLACEHOLDER</span>
-      <span style="font-size:12.5px;">仮：生成画像を配置予定</span>
+      <img src="./hero-concert.png" alt="BandBoxのTシャツを着た観客がライブ会場で盛り上がる様子">
     </div>
-  </div>
-  <div class="ticker" aria-hidden="true">
-    <div class="ticker-in">MERCH FOR ARTISTS — PRINT / SELL / SHIP / SUPPORT — BANDBOX — MERCH FOR ARTISTS — PRINT / SELL / SHIP / SUPPORT — BANDBOX — MERCH FOR ARTISTS — PRINT / SELL / SHIP / SUPPORT — BANDBOX — MERCH FOR ARTISTS — PRINT / SELL / SHIP / SUPPORT — BANDBOX —&nbsp;</div>
   </div>
 </div>
 
@@ -368,23 +393,19 @@
     </div>
     <div class="problems">
       <div class="problem">
-        <span class="en">01</span>
-        <h3>在庫が怖い</h3>
+        <h3><span>在庫が怖い</span></h3>
         <p>まとめて作って売れ残ったら赤字。最初の一歩が踏み出せない。</p>
       </div>
       <div class="problem">
-        <span class="en">02</span>
-        <h3>手が回らない</h3>
-        <p>受注管理、梱包、発送、問い合わせ対応。制作と活動の時間が削られていく。</p>
+        <h3><span>手が回らない</span></h3>
+        <p>受注管理、梱包、発送、問い合わせ。活動の時間が削られていく。</p>
       </div>
       <div class="problem">
-        <span class="en">03</span>
-        <h3>先立つものがない</h3>
+        <h3><span>先立つものがない</span></h3>
         <p>製造費の先払い、ECの月額費用。売れる前からお金が出ていく。</p>
       </div>
       <div class="problem">
-        <span class="en">04</span>
-        <h3>仕組みがわからない</h3>
+        <h3><span>仕組みがわからない</span></h3>
         <p>ECサイトの構築、決済、特商法表記。調べることが多すぎる。</p>
       </div>
     </div>
@@ -392,42 +413,35 @@
 </section>
 
 <!-- 3. サービス概要 -->
-<section>
+<section class="about-section">
   <div class="wrap">
     <div class="sec-head">
       <span class="tag"><span class="en">ABOUT</span>バンドボックスとは</span>
       <h2>デザインを送る。あとは全部、こちらの仕事。</h2>
     </div>
-    <p class="about-copy">バンドボックスは、アーティスト専用のグッズ販売ページを開設し、<b>製造・販売・発送・購入者対応・売上の精算までを一括で代行</b>するサービスです。ページにはライブスケジュールや配信URLも掲載でき、ファンの導線がひとつにまとまります。</p>
+    <p class="about-copy">バンドボックスは、アーティスト専用のグッズ販売ページを開設し、<br>製造・販売・発送・購入者対応・売上の精算までを一括で代行するサービスです。<br><span class="about-line">ページにはライブスケジュールや配信URLも掲載でき、ファンの導線がひとつにまとまります。</span></p>
     <div class="flow">
-      <div class="flow-col">
-        <h4>ARTIST</h4>
-        <ul>
-          <li>デザインデータを送る</li>
-          <li>商品情報を登録する</li>
-          <li>SNSで告知する</li>
-        </ul>
+      <div class="flow-panel flow-before">
+        <div class="flow-panel-head"><span class="en">BEFORE</span><h3>従来のグッズ販売</h3></div>
+        <div class="flow-panel-body">
+          <ul>
+            <li>商品をまとめて作る</li>
+            <li>製造費を先に支払う</li>
+            <li>売れ残りは在庫になる</li>
+            <li>受注・発送も自分で対応</li>
+          </ul>
+        </div>
       </div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-col flow-mid">
-        <h4>BANDBOX</h4>
-        <ul>
-          <li>販売ページの開設・運営</li>
-          <li>受注・決済</li>
-          <li>製造の手配 / 在庫の保管</li>
-          <li>梱包・発送</li>
-          <li>購入者からの問い合わせ対応</li>
-          <li>売上の集計・精算</li>
-        </ul>
-      </div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-col">
-        <h4>ARTIST</h4>
-        <ul>
-          <li>支払通知書を受け取る</li>
-          <li>売上が振り込まれる</li>
-          <li>次の作品へ</li>
-        </ul>
+      <div class="flow-panel flow-after">
+        <div class="flow-panel-head"><span class="en">AFTER</span><h3>BANDBOXなら</h3></div>
+        <div class="flow-panel-body">
+          <ul>
+            <li><b>売れた分だけ、つくれる</b><span>必要な分だけ製造するから、作りすぎません。</span></li>
+            <li><b>売れる前に、お金が出ていかない</b><span>初期費用・月額費用は0円です。</span></li>
+            <li><b>売れ残りを、抱えない</b><span>在庫リスク0で、気軽に始められます。</span></li>
+            <li><b>制作と活動に、集中できる</b><span>製造・発送・購入者対応はすべて任せられます。</span></li>
+          </ul>
+        </div>
       </div>
     </div>
     <p class="flow-note">※ 売上は毎月末締め・翌月末払い。支払通知書を発行し、内訳を明示してお振込みします。</p>
@@ -443,7 +457,7 @@
     </div>
     <div class="methods">
       <div class="method">
-        <div class="method-head"><span class="en">A</span><h3>受注生産</h3></div>
+        <div class="method-head"><h3>受注生産</h3></div>
         <div class="method-body">
           <p>1週間ごとに注文をまとめて製造し、お届けする方式。売れた分しか作らないので、在庫リスクはありません。</p>
           <ul>
@@ -454,7 +468,7 @@
         </div>
       </div>
       <div class="method">
-        <div class="method-head"><span class="en">B</span><h3>在庫販売</h3></div>
+        <div class="method-head"><h3>在庫販売</h3></div>
         <div class="method-body">
           <p>商品在庫をバンドボックスがお預かりし、注文が入り次第すぐに発送する方式。売れ筋の定番グッズに向いています。</p>
           <ul>
@@ -478,19 +492,25 @@
     </div>
     <div class="features">
       <div class="feature">
-        <span class="en">FULL SUPPORT</span>
-        <h3>製造から精算まで、まるごと代行</h3>
+        <div class="feature-head">
+          <span class="en">FULL SUPPORT</span>
+          <h3>製造から精算まで、まるごと代行</h3>
+        </div>
         <p>製造手配、発送、購入者対応、売上精算まで。アーティスト側の作業は、デザインの入稿と商品登録だけです。</p>
       </div>
       <div class="feature">
-        <span class="en">YOUR PAGE</span>
-        <h3>アーティスト専用ページ</h3>
-        <p>グッズ販売だけでなく、ライブスケジュールや配信URLも掲載。プロフィールに置く1本のリンクとして機能します。</p>
+        <div class="feature-head">
+          <span class="en">YOUR PAGE</span>
+          <h3>アーティスト専用ページ</h3>
+        </div>
+        <p>グッズ販売だけでなく、ライブスケジュールや配信URLも掲載。<br>プロフィールに置く1本のリンクとして機能します。</p>
       </div>
       <div class="feature">
-        <span class="en">NO RISK</span>
-        <h3>初期費用・月額費用 0円</h3>
-        <p>かかるのは売れたときの手数料だけ。売上の10%(カード決済手数料込み)というシンプルな料金体系です。</p>
+        <div class="feature-head">
+          <span class="en">NO RISK</span>
+          <h3>初期費用・月額費用 0円</h3>
+        </div>
+        <p>かかるのは売れたときの手数料だけ。<br>売上の10%(カード決済手数料込み)というシンプルな料金体系です。</p>
       </div>
     </div>
   </div>
@@ -504,11 +524,13 @@
       <h2>すでに、動いています。</h2>
     </div>
     <div class="case">
-      <div class="case-shot">【事例ページのスクリーンショット】</div>
+      <div class="case-shot">
+        <img src="./case-shiggy-jr.png" alt="Shiggy Jr.のBandBox掲載ページのスクリーンショット">
+      </div>
       <div class="case-copy">
-        <h3>【アーティスト名】のグッズストア</h3>
-        <p>【事例の紹介文:どんなアーティストか、どんなグッズを、どちらの方式で販売しているか。可能であれば本人のコメントを1〜2文。】</p>
-        <a class="case-link" href="【事例ページURL】">実際のページを見る →</a>
+        <h3>Shiggy Jr.のグッズストア</h3>
+        <p>アーティストページから、グッズ販売や最新情報へスムーズにアクセスできます。</p>
+        <a class="case-link" href="https://bandbox.co.jp/collections/shiggyjr" target="_blank" rel="noopener noreferrer">実際のページを見る →</a>
       </div>
     </div>
   </div>
@@ -524,7 +546,10 @@
     <div class="price-box">
       <div class="price-main">
         <div class="rate">サービス手数料は、売上の</div>
-        <div class="num en">10<small>%</small></div>
+        <div class="num en">
+          <span class="old-rate"><span class="old-rate-number">15</span><small>%</small></span>
+          <span class="rate-new"><span class="rate-arrow">→</span>10<small>%</small></span>
+        </div>
         <p>クレジットカード決済手数料込み。これ以外に販売時の費用はかかりません。</p>
       </div>
       <div class="price-side">
@@ -543,7 +568,6 @@
     <div class="sec-head">
       <span class="tag"><span class="en">ITEMS</span>作れるもの</span>
       <h2>Tシャツは、1点から。</h2>
-      <p class="lead">アパレルは1点から製造可能。小物・雑貨は商材により最低ロットが異なります。</p>
     </div>
     <div class="items">
       <div class="item one">Tシャツ<span class="lot">1点から</span></div>
@@ -553,9 +577,15 @@
       <div class="item">タオル<span class="lot">ロットは要相談</span></div>
       <div class="item">ステッカー<span class="lot">ロットは要相談</span></div>
       <div class="item">缶バッジ<span class="lot">ロットは要相談</span></div>
+      <div class="item">ZINE<span class="lot">ロットは要相談</span></div>
+      <div class="item">音源データ（MP3など）<span class="lot">販売方法は要相談</span></div>
       <div class="item">【その他商材】<span class="lot">お気軽にご相談を</span></div>
     </div>
     <p class="items-note">※ 商品ラインナップは一例です。「これは作れる?」という段階からご相談ください。</p>
+    <div class="items-delivery">
+      受注生産の場合、注文からお届けまで最短14日(オンデマンド製造)。
+      <small>ライブ物販などの日程が決まっている場合は、事前のご予約で製造スケジュールを調整できます。</small>
+    </div>
   </div>
 </section>
 
@@ -568,21 +598,17 @@
     </div>
     <div class="steps">
       <div class="step">
-        <h3>相談・登録</h3>
-        <p>フォームからご連絡ください。サービス内容と条件をご説明し、Webから利用登録いただきます。</p>
+        <span class="step-num">01</span>
+        <div><h3>相談・登録</h3><p>フォームからご連絡ください。サービス内容と条件をご説明し、Webから利用登録いただきます。</p></div>
       </div>
       <div class="step">
-        <h3>デザイン入稿・商品登録</h3>
-        <p>デザインデータを入稿し、商品情報とページに載せる情報(スケジュール・配信URL等)を登録します。</p>
+        <span class="step-num">02</span>
+        <div><h3>デザイン入稿・商品登録</h3><p>デザインデータを入稿し、商品情報とページに載せる情報(スケジュール・配信URL等)を登録します。</p></div>
       </div>
       <div class="step">
-        <h3>販売開始</h3>
-        <p>専用ページを公開して販売スタート。あとは告知に集中してください。売れたら、こちらが動きます。</p>
+        <span class="step-num">03</span>
+        <div><h3>販売開始</h3><p>専用ページを公開して販売スタート。あとは告知に集中してください。売れたら、こちらが動きます。</p></div>
       </div>
-    </div>
-    <div class="steps-note">
-      受注生産の場合、注文からお届けまで最短14日(オンデマンド製造)。
-      <small>ライブ物販などの日程が決まっている場合は、事前のご予約で製造スケジュールを調整できます。</small>
     </div>
   </div>
 </section>
@@ -643,15 +669,15 @@
 <div class="closing" id="contact">
   <div class="en">LET'S TALK<br>ABOUT YOUR <span>MERCH.</span></div>
   <p>「まだ何も決まってない」段階で大丈夫です。まずは話を聞かせてください。</p>
-  <a class="hero-cta" href="【フォームURL】">まずは相談する<small>CONSULT — 無料</small></a>
+  <a class="hero-cta" href="【フォームURL】">まずは相談する<small><span class="en">CONSULT</span> — 無料</small></a>
 </div>
 
 <footer>
   <div class="footer-in">
     <div>
       <a href="【アーティスト向け利用規約URL】">アーティスト向け利用規約</a>
-      <a href="【プライバシーポリシーURL】">プライバシーポリシー</a>
-      <a href="【特定商取引法に基づく表記URL】">特定商取引法に基づく表記</a>
+      <a href="https://bandbox.co.jp/policies/privacy-policy">プライバシーポリシー</a>
+      <a href="https://bandbox.co.jp/policies/legal-notice">特定商取引法に基づく表記</a>
     </div>
     <div>© 2026 【会社名】 / BANDBOX</div>
   </div>
