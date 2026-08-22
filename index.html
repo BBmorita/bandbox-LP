@@ -94,7 +94,7 @@
     margin:0 0 18px;
   }
   .hero h1 .copy-line{white-space:nowrap;}
-  .hero h1 .copy-marker{background:linear-gradient(transparent 62%,var(--blue-soft) 62%);}
+  .hero h1 .copy-marker,.marker{background:linear-gradient(transparent 62%,var(--blue-soft) 62%);}
   .hero .sub{
     font-size:16px;font-weight:500;color:var(--ink);
     max-width:34em;
@@ -174,7 +174,7 @@
   .flow-panel-body li:last-child{border-bottom:none;}
   .flow-before .flow-panel-body li{font-size:16px;font-weight:700;color:var(--gray);}
   .flow-after .flow-panel-body b{display:block;font-size:18px;line-height:1.4;}
-  .flow-after .flow-panel-body span{display:block;margin-top:2px;font-size:16px;font-weight:500;color:var(--gray);}
+  .flow-after .flow-panel-body li > span{display:block;margin-top:2px;font-size:16px;font-weight:500;color:var(--gray);}
   .flow-note{margin-top:14px;font-size:13px;color:var(--gray);}
 
   /* 販売方式 */
@@ -186,8 +186,8 @@
   }
   .method-head h3{font-size:22px;font-weight:900;line-height:1;}
   .method-body{padding:24px 26px 28px;}
-  .method-body p{font-size:16px;}
-  .method-body ul{list-style:none;margin-top:14px;}
+  .method-body p{margin:16px 0 0;font-size:16px;font-weight:500;line-height:1.8;color:var(--gray);}
+  .method-body ul{list-style:none;margin:0;}
   .method-body li{
     font-size:18px;font-weight:700;padding-left:24px;position:relative;margin-top:10px;line-height:1.4;
   }
@@ -207,7 +207,7 @@
   .feature-head{padding:0;}
   .feature .en{color:var(--blue);font-size:14px;letter-spacing:.1em;}
   .feature h3{font-size:18px;font-weight:900;margin:6px 0 0;line-height:1.5;}
-  .feature p{padding:0;font-size:16px;color:var(--gray);align-self:center;}
+  .feature p{padding:0;font-size:16px;font-weight:500;line-height:1.8;color:var(--gray);align-self:center;}
 
   /* 事例 */
   .case{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center;}
@@ -436,10 +436,10 @@
         <div class="flow-panel-head"><span class="en">AFTER</span><h3>BANDBOXなら</h3></div>
         <div class="flow-panel-body">
           <ul>
-            <li><b>売れた分だけ、つくれる</b><span>必要な分だけ製造するから、作りすぎません。</span></li>
-            <li><b>売れる前に、お金が出ていかない</b><span>初期費用・月額費用は0円です。</span></li>
-            <li><b>売れ残りを、抱えない</b><span>在庫リスク0で、気軽に始められます。</span></li>
-            <li><b>制作と活動に、集中できる</b><span>製造・発送・購入者対応はすべて任せられます。</span></li>
+            <li><b><span class="marker">売れた分だけ、つくれる</span></b><span>必要な分だけ製造するから、作りすぎません。</span></li>
+            <li><b><span class="marker">売れる前に、お金が出ていかない</span></b><span>初期費用・月額費用は0円です。</span></li>
+            <li><b><span class="marker">売れ残りを、抱えない</span></b><span>在庫リスク0で、気軽に始められます。</span></li>
+            <li><b><span class="marker">制作と活動に、集中できる</span></b><span>製造・発送・購入者対応はすべて任せられます。</span></li>
           </ul>
         </div>
       </div>
@@ -459,23 +459,23 @@
       <div class="method">
         <div class="method-head"><h3>受注生産</h3></div>
         <div class="method-body">
-          <p>1週間ごとに注文をまとめて製造し、お届けする方式。売れた分しか作らないので、在庫リスクはありません。</p>
           <ul>
-            <li>在庫リスク 0</li>
-            <li>製造費の先払いなし</li>
-            <li>お届けまで最短14日</li>
+            <li><span class="marker">在庫リスク 0</span></li>
+            <li><span class="marker">製造費の先払いなし</span></li>
+            <li><span class="marker">お届けまで最短14日</span></li>
           </ul>
+          <p>1週間ごとに注文をまとめて製造し、お届けする方式。売れた分しか作らないので、在庫リスクはありません。</p>
         </div>
       </div>
       <div class="method">
         <div class="method-head"><h3>在庫販売</h3></div>
         <div class="method-body">
-          <p>商品在庫をバンドボックスがお預かりし、注文が入り次第すぐに発送する方式。売れ筋の定番グッズに向いています。</p>
           <ul>
-            <li>注文後すぐに発送</li>
-            <li>保管・在庫管理も代行</li>
-            <li>既存の手持ち在庫もOK</li>
+            <li><span class="marker">注文後すぐに発送</span></li>
+            <li><span class="marker">保管・在庫管理も代行</span></li>
+            <li><span class="marker">既存の手持ち在庫もOK</span></li>
           </ul>
+          <p>商品在庫をバンドボックスがお預かりし、注文が入り次第すぐに発送する方式。売れ筋の定番グッズに向いています。</p>
         </div>
       </div>
       <div class="method-step">おすすめは、まず受注生産で試して、売れたアイテムを在庫販売に切り替える流れ。リスクなく定番グッズが育てられます。</div>
@@ -494,21 +494,21 @@
       <div class="feature">
         <div class="feature-head">
           <span class="en">FULL SUPPORT</span>
-          <h3>製造から精算まで、まるごと代行</h3>
+          <h3><span class="marker">製造から精算まで、まるごと代行</span></h3>
         </div>
         <p>製造手配、発送、購入者対応、売上精算まで。アーティスト側の作業は、デザインの入稿と商品登録だけです。</p>
       </div>
       <div class="feature">
         <div class="feature-head">
           <span class="en">YOUR PAGE</span>
-          <h3>アーティスト専用ページ</h3>
+          <h3><span class="marker">アーティスト専用ページ</span></h3>
         </div>
         <p>グッズ販売だけでなく、ライブスケジュールや配信URLも掲載。<br>プロフィールに置く1本のリンクとして機能します。</p>
       </div>
       <div class="feature">
         <div class="feature-head">
           <span class="en">NO RISK</span>
-          <h3>初期費用・月額費用 0円</h3>
+          <h3><span class="marker">初期費用・月額費用 0円</span></h3>
         </div>
         <p>かかるのは売れたときの手数料だけ。<br>売上の10%(カード決済手数料込み)というシンプルな料金体系です。</p>
       </div>
@@ -528,7 +528,7 @@
         <img src="./case-shiggy-jr.png" alt="Shiggy Jr.のBandBox掲載ページのスクリーンショット">
       </div>
       <div class="case-copy">
-        <h3>Shiggy Jr.のグッズストア</h3>
+        <h3><span class="marker">Shiggy Jr.のグッズストア</span></h3>
         <p>アーティストページから、グッズ販売や最新情報へスムーズにアクセスできます。</p>
         <a class="case-link" href="https://bandbox.co.jp/collections/shiggyjr" target="_blank" rel="noopener noreferrer">実際のページを見る →</a>
       </div>
@@ -545,7 +545,7 @@
     </div>
     <div class="price-box">
       <div class="price-main">
-        <div class="rate">サービス手数料は、売上の</div>
+        <div class="rate"><span class="marker">サービス手数料は、売上の</span></div>
         <div class="num en">
           <span class="old-rate"><span class="old-rate-number">15</span><small>%</small></span>
           <span class="rate-new"><span class="rate-arrow">→</span>10<small>%</small></span>
@@ -553,9 +553,9 @@
         <p>クレジットカード決済手数料込み。これ以外に販売時の費用はかかりません。</p>
       </div>
       <div class="price-side">
-        <div class="price-line"><span>初期費用</span><b>0円</b></div>
-        <div class="price-line"><span>月額費用</span><b>0円</b></div>
-        <div class="price-line"><span>販売ページ開設</span><b>0円</b></div>
+        <div class="price-line"><span class="marker">初期費用</span><b>0円</b></div>
+        <div class="price-line"><span class="marker">月額費用</span><b>0円</b></div>
+        <div class="price-line"><span class="marker">販売ページ開設</span><b>0円</b></div>
         <p class="price-note">※ 配送料は購入者のご負担です。<br>※ 120サイズを超える大型商品や、多量の在庫保管が必要な場合は、費用を別途ご相談させていただくことがあります。</p>
       </div>
     </div>
@@ -570,10 +570,10 @@
       <h2>Tシャツは、1点から。</h2>
     </div>
     <div class="items">
-      <div class="item one">Tシャツ<span class="lot">1点から</span></div>
-      <div class="item one">ロングスリーブ<span class="lot">1点から</span></div>
-      <div class="item one">パーカー<span class="lot">1点から</span></div>
-      <div class="item one">トートバッグ<span class="lot">1点から</span></div>
+      <div class="item one"><span class="marker">Tシャツ</span><span class="lot">1点から</span></div>
+      <div class="item one"><span class="marker">ロングスリーブ</span><span class="lot">1点から</span></div>
+      <div class="item one"><span class="marker">パーカー</span><span class="lot">1点から</span></div>
+      <div class="item one"><span class="marker">トートバッグ</span><span class="lot">1点から</span></div>
       <div class="item">タオル<span class="lot">ロットは要相談</span></div>
       <div class="item">ステッカー<span class="lot">ロットは要相談</span></div>
       <div class="item">缶バッジ<span class="lot">ロットは要相談</span></div>
@@ -599,15 +599,15 @@
     <div class="steps">
       <div class="step">
         <span class="step-num">01</span>
-        <div><h3>相談・登録</h3><p>フォームからご連絡ください。サービス内容と条件をご説明し、Webから利用登録いただきます。</p></div>
+        <div><h3><span class="marker">相談・登録</span></h3><p>フォームからご連絡ください。サービス内容と条件をご説明し、Webから利用登録いただきます。</p></div>
       </div>
       <div class="step">
         <span class="step-num">02</span>
-        <div><h3>デザイン入稿・商品登録</h3><p>デザインデータを入稿し、商品情報とページに載せる情報(スケジュール・配信URL等)を登録します。</p></div>
+        <div><h3><span class="marker">デザイン入稿・商品登録</span></h3><p>デザインデータを入稿し、商品情報とページに載せる情報(スケジュール・配信URL等)を登録します。</p></div>
       </div>
       <div class="step">
         <span class="step-num">03</span>
-        <div><h3>販売開始</h3><p>専用ページを公開して販売スタート。あとは告知に集中してください。売れたら、こちらが動きます。</p></div>
+        <div><h3><span class="marker">販売開始</span></h3><p>専用ページを公開して販売スタート。あとは告知に集中してください。売れたら、こちらが動きます。</p></div>
       </div>
     </div>
   </div>
