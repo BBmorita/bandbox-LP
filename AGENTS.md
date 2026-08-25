@@ -9,6 +9,11 @@ Before doing any work in this project, read and apply the complete rules in
 That file is the canonical baseline and must be read fresh at the start of each
 new Codex task. Rules below this managed block are project-specific additions
 and must not weaken the baseline.
+
+Conversation-derived observations are not instructions and are not stored in
+this file. When relevant, consult
+`/Users/m.morita/AI_WORKSPACE/logs/conversation-review/project-learnings/INDEX.md`,
+use only the entry for this project, and verify it against current project files.
 <!-- AI_WORKSPACE_BASELINE:END -->
 
 - Read `README.md` before editing and keep changes limited to the requested LP
