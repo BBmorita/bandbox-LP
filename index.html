@@ -226,6 +226,26 @@
     color:var(--blue);text-decoration:none;border-bottom:2px solid var(--blue);padding-bottom:2px;
   }
 
+  /* サービス比較 */
+  .comparison-box{border:2px solid var(--ink);background:#fff;box-shadow:5px 5px 0 var(--ink);}
+  .comparison-scroll{overflow-x:auto;}
+  .comparison-scroll:focus-visible{outline:3px solid var(--blue);outline-offset:4px;}
+  .comparison-table{width:100%;min-width:900px;border-collapse:collapse;table-layout:fixed;font-size:14px;line-height:1.8;}
+  .comparison-table th,.comparison-table td{padding:20px 16px;vertical-align:middle;border-right:1px solid var(--line);text-align:center;overflow-wrap:anywhere;}
+  .comparison-table tr > :last-child{border-right:none;}
+  .comparison-table thead th{font-size:14px;font-weight:900;background:var(--tag-bg);border-bottom:2px solid var(--ink);}
+  .comparison-table thead th:first-child{width:22%;text-align:left;}
+  .comparison-table thead .comparison-brand{width:25%;background:var(--blue);color:#fff;font-size:19px;}
+  .comparison-table tbody th{text-align:left;font-weight:700;}
+  .comparison-table tbody tr + tr > *{border-top:1px dashed var(--line);}
+  .comparison-table tbody td{color:var(--gray);}
+  .comparison-table tbody .comparison-brand{background:#F0F2FC;color:var(--ink);font-weight:900;}
+  .comparison-table .comparison-symbol{display:block;font-size:25px;line-height:1.4;}
+  .comparison-table .comparison-brand .comparison-symbol{color:var(--blue);}
+  .comparison-notes{margin-top:20px;color:var(--gray);font-size:12px;line-height:1.9;}
+  .comparison-hint{display:none;margin-bottom:12px;font-size:12px;color:var(--gray);}
+  @media(max-width:960px){.comparison-hint{display:block;}}
+
   /* 料金 */
   .price-box{
     border:2px solid var(--ink);background:#fff;box-shadow:6px 6px 0 var(--ink);
@@ -603,6 +623,81 @@
         <p>アーティストページから、グッズ販売や最新情報へスムーズにアクセスできます。</p>
         <a class="case-link" href="https://bandbox.co.jp/collections/shiggyjr" target="_blank" rel="noopener noreferrer">実際のページを見る →</a>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- サービス比較 -->
+<section id="compare" aria-labelledby="comparison-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="tag"><span class="en">COMPARE</span>サービス比較</span>
+      <h2 id="comparison-title">受注生産も、手持ちの在庫も。<br>販売をひとつに。</h2>
+    </div>
+    <p class="comparison-hint" id="comparison-hint">表は横にスクロールしてご覧いただけます →</p>
+    <div class="comparison-box">
+      <div class="comparison-scroll" role="region" aria-label="グッズ販売サービスの比較表" aria-describedby="comparison-legend" tabindex="0">
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th scope="col">比較項目</th>
+              <th scope="col" class="comparison-brand"><span class="en">BANDBOX</span></th>
+              <th scope="col">グッズ販売<br>サービスA</th>
+              <th scope="col">グッズ販売<br>サービスB</th>
+              <th scope="col">グッズ販売<br>サービスC</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">在庫を持たない<br>受注生産</th>
+              <td class="comparison-brand"><span class="comparison-symbol" aria-label="対応">◎</span></td>
+              <td><span class="comparison-symbol" aria-label="対応">◎</span></td>
+              <td><span class="comparison-symbol" aria-label="対応">◎</span></td>
+              <td><span class="comparison-symbol" aria-label="対応">◎</span></td>
+            </tr>
+            <tr>
+              <th scope="row">既存の手持ち在庫の<br>保管・発送</th>
+              <td class="comparison-brand"><span class="comparison-symbol" aria-label="対応">◎</span></td>
+              <td><span class="comparison-symbol" aria-label="対応未確認または比較対象外">−</span></td>
+              <td><span class="comparison-symbol" aria-label="対応">◎</span></td>
+              <td><span class="comparison-symbol" aria-label="対応未確認または比較対象外">−</span></td>
+            </tr>
+            <tr>
+              <th scope="row">受注生産と<br>既存在庫の管理</th>
+              <td class="comparison-brand"><span class="marker">同じ管理画面・<br>販売ページで管理</span></td>
+              <td><span class="comparison-symbol" aria-label="対応未確認または比較対象外">−</span></td>
+              <td>同じショップ内で、<br>販売方式ごとに設定</td>
+              <td><span class="comparison-symbol" aria-label="対応未確認または比較対象外">−</span></td>
+            </tr>
+            <tr>
+              <th scope="row">アーティスト向け<br>専用フォーマット</th>
+              <td class="comparison-brand"><span class="marker">グッズ・ライブ予定・<br>配信リンクを集約</span></td>
+              <td><span class="comparison-symbol" aria-label="専用機能の対応未確認">−</span></td>
+              <td><span class="comparison-symbol" aria-label="専用機能の対応未確認">−</span></td>
+              <td><span class="comparison-symbol" aria-label="専用機能の対応未確認">−</span></td>
+            </tr>
+            <tr>
+              <th scope="row">購入者対応の代行</th>
+              <td class="comparison-brand"><span class="comparison-symbol" aria-label="対応">◎</span></td>
+              <td><span class="comparison-symbol" aria-label="対応">◎</span></td>
+              <td><span class="comparison-symbol" aria-label="条件・対応範囲による">△</span></td>
+              <td><span class="comparison-symbol" aria-label="条件・対応範囲による">△</span></td>
+            </tr>
+            <tr>
+              <th scope="row">製造→倉庫の配送費</th>
+              <td class="comparison-brand"><span class="marker">無料</span></td>
+              <td><span class="comparison-symbol" aria-label="該当する配送経路なし">−</span></td>
+              <td>別途配送費が発生</td>
+              <td><span class="comparison-symbol" aria-label="対応未確認または比較対象外">−</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="comparison-notes">
+      <p id="comparison-legend">※ ◎：対応 ／ △：条件・対応範囲による ／ −：公式情報で対応未確認、または該当する配送経路なし。</p>
+      <p>※ 製造→倉庫の配送費と、購入者への送料は別です。</p>
+      <p>※ 各サービスの標準的な提供範囲をもとにした比較です（2026年9月時点）。</p>
     </div>
   </div>
 </section>
